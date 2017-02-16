@@ -1,0 +1,38 @@
+<block wx:if="{{!loading}}">
+    <view class="body">
+        <scroll-view class="scroll_view" scroll-top="{{scrollTop}}" bindtap="showMenu" bindscroll="scroll"
+                     scroll-y="true" style="height: {{scrollHeight}}px;">
+            <view class="item_contact">
+                <block wx:for-items="{{selection}}" wx:for-item="item">
+                    <text class="body_text" style="font-size: {{fontSize}}rpx">{{item}}</text>
+                </block>
+                <button class="next_chapter" style="display: {{loadingContact?'none':'flex'}}" bindtap="nextChapter">
+                    下一章
+                </button>
+            </view>
+        </scroll-view>
+        <view class="bottom_view" style="display: {{showBottom?'flex':'none'}}" >
+            <view class="text_control">
+                <view>Aa-</view>
+                <view class="pro_bar">
+                    <slider value="{{fontSize}}" bindchange="slider4change" min="20" max="60" show-value/>
+                </view>
+                <view>Aa+</view>
+            </view>
+            <view class="line"></view>
+            <view class="img_control">
+                <view bindtap="chapterOpen" data-id="{{bookId}}">
+                    <image src="/image/ic_menu_toc_normal.png" class="img_1" mode="aspectFit"></image>
+                </view>
+
+                <image src="/image/ic_menu_mode_night_manual.png" class="img_1" mode="aspectFit"></image>
+                <view bindtap="nextChapter">下一章</view>
+            </view>
+        </view>
+    </view>
+</block>
+<block wx:else>
+    <loading hidden="{{!loading}}" bindchange="loadingChange">
+        加载中...
+    </loading>
+</block>

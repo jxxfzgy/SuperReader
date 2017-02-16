@@ -1,0 +1,48 @@
+<block wx:if="{{!loading}}">
+    <scroll-view class="container" scroll-top="0" scroll-y="true" style="height:{{scrollHeight}}px;"
+                 bindscrolltolower="loadMore" bindscroll="scroll" bindscrolltoupper="refresh">
+        <block wx:for-items="{{books}}">
+            <view class="book-item" bindtap="bookDetail" data-id="{{item._id}}" data-title="{{item.title}}">
+                <view class="book-image">
+                    <image src="http://statics.zhuishushenqi.com{{item.cover}}"></image>
+                </view>
+                <view class="book-info">
+                    <view class="book-inner">
+                        <view class="item_title">{{item.title}}</view>
+                        <view class="item_author">{{item.author}}</view>
+                        <text class="item_desc">{{item.shortIntro}}</text>
+                    </view>
+
+                </view>
+            </view>
+            <!--<view class = "widget">-->
+            <!--<navigator url="../detail/detail?_id={{item._id}}&title={{item.title}}" class = "widget_item">-->
+            <!--<image class="item_img" src="http://statics.zhuishushenqi.com{{item.cover}}" mode="aspectFill" />-->
+            <!--<view class = "item_text">-->
+            <!--<text class = "item_title">{{item.title}}</text>-->
+            <!--<text class = "item_author">{{item.author}}</text>-->
+            <!--<text class = "item_desc">{{item.shortIntro}}</text>-->
+            <!--</view>-->
+            <!--</navigator>-->
+            <!--</view>-->
+        </block>
+        <view class="load-more-wrap">
+            <block wx:if="{{hasMore}}">
+                <view class="load-content">
+                    <text class="weui-loading"/>
+                    <text class="loading-text">正在加载更多...</text>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="load-content">
+                    <text>没有更多内容了</text>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</block>
+<block wx:else>
+    <loading hidden="{{!loading}}" bindchange="loadingChange">
+        加载中...
+    </loading>
+</block>

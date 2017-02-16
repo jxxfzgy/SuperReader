@@ -1,0 +1,45 @@
+.section{
+    margin-top: 32rpx;
+    margin-bottom: 32rpx;
+}
+.section_title{
+    padding-bottom: 32rpx;
+    padding-left: 20rpx;
+    font-size: 28rpx;
+    color: #999;
+}
+.section_wrp{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.item{
+    cursor: pointer;
+    padding: 12rpx 0rpx;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 33.3333%;
+    background: #fff;
+    border: 1rpx solid #ddd;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+}
+.temp_cate{
+    flex: 1;
+    text-align: center;
+}
+.temp_count{
+    flex: 1;
+    vertical-align:middle;
+}
+.cate{
+    font-size: 32rpx;
+    color: #333;
+}
+.count{
+    margin-top: 6rpx;
+    font-size: 24rpx;
+    color: #999;
+}

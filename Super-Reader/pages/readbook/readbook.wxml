@@ -1,0 +1,20 @@
+<view class="main">
+    <view class="header">
+        <view class="app_name">超级小说</view>
+        <view bindtap="searchBook">
+            <image src="/image/icon_search.png" class="search_icon" mode="aspectFit"></image>
+        </view>
+    </view>
+    <view class="section_wrp">
+        <block wx:for="{{books}}">
+            <view class="item" data-id="{{item._id}}" data-title="{{item.title}}" bindtap="readBook" bindtouchstart="touchStart"
+                  bindtouchend="touchEnd" bindlongtap="longClick">
+                <image src="http://statics.zhuishushenqi.com{{item.cover}}" class="img"></image>
+                <view class="title">{{item.title}}</view>
+            </view>
+        </block>
+    </view>
+    <modal title="确定将此书移除书架吗？" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}"
+           mask bindconfirm="confirm" bindcancel="cancel">
+    </modal>
+</view>

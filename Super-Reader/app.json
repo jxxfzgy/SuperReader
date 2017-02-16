@@ -1,0 +1,47 @@
+{
+  "pages":[
+    "pages/readbook/readbook",
+    "pages/bookstore/bookstore",
+    "pages/detail/detail",
+    "pages/list/list",
+    "pages/search/search",
+    "pages/contents/contents",
+    "pages/reader/reader",
+    "pages/my/my",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "SuperReader",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "borderStyle": "#ededed",
+    "selectedColor": "#e8554d",
+    "list": [{
+      "pagePath": "pages/readbook/readbook",
+      "text": "读书",
+      "iconPath": "image/readbook.png",
+      "selectedIconPath": "image/readbook_s.png"
+    },
+    {
+      "pagePath": "pages/bookstore/bookstore",
+      "text": "书城",
+      "iconPath": "image/bookstore.png",
+      "selectedIconPath": "image/bookstore_s.png"
+    },
+    {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "image/my.png",
+      "selectedIconPath": "image/my_s.png"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}

@@ -1,0 +1,67 @@
+<block wx:if="{{!loading}}">
+    <view class="detail">
+        <view class="head">
+        </view>
+        <view class="body">
+            <scroll-view scroll-y="true" style="height:100%">
+                <view class="top_view">
+                    <image class="top_bg" src="http://statics.zhuishushenqi.com{{book.cover}}"
+                           mode="scaleToFill"></image>
+                    <view class="item_inhave"></view>
+                    <view class="top_item">
+                        <view class="top_item_img_text">
+                            <image class="item_img" src="http://statics.zhuishushenqi.com{{book.cover}}"
+                                   mode="aspectFill"></image>
+                            <view class="item_text">
+                                <text class="text_title">{{book.title}}</text>
+                                <text class="text_author">{{book.author}}</text>
+                                <view class="text_tags_layout">
+                                    <block wx:for-items="{{book.tags}}">
+                                        <text class="text_tag">{{item}}、</text>
+                                    </block>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="top_btn">
+                            <button class="btn_read" data-id="{{book._id}}" data-title="{{book.title}}" bindtap="readBook">阅 读</button>
+                            <button class="btn_collect" data-book="{{book}}" disabled="{{hasSave}}" bindtap="addBookStore">
+                                {{hasSave?"已在书架":"加入书架"}}
+                            </button>
+                        </view>
+                    </view>
+                </view>
+                <view class="contact_style" bindtap="chapterOpen" data-id="{{book._id}}"
+                      data-count="{{book.chaptersCount}}">
+                    <text class="contact_text">查看目录：共{{book.chaptersCount}}章</text>
+                    <image src="/image/arrowright.png" class='contact_icon' mode="aspectFill"></image>
+                </view>
+                <view class="view_line_bottom"></view>
+                <view class="view_data">
+                    <view class="data_style">
+                        <text class="key">追书人数</text>
+                        <text class="value">{{book.latelyFollower}}</text>
+                    </view>
+                    <view class="data_style">
+                        <text class="key">读者留存率</text>
+                        <text class="value">{{book.retentionRatio}}%</text>
+                    </view>
+                    <view class="data_style">
+                        <text class="key">日更新字数</text>
+                        <text class="value">{{book.wordCount}}</text>
+                    </view>
+                </view>
+                <view class="view_line"></view>
+                <view class="book_instro_view">
+                    <text class="book_instro">内容简介：{{book.longIntro}}</text>
+                </view>
+                <view class="view_line_bottom"></view>
+            </scroll-view>
+            <toast hidden="{{toast1Hidden}}" duration="2000" bindchange="toast1Change">
+                已加入书架
+            </toast>
+        </view>
+    </view>
+</block>
+<loading hidden="{{!loading}}" bindchange="loadingChange">
+    加载中...
+</loading>

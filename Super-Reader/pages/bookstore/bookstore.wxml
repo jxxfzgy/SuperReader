@@ -1,0 +1,53 @@
+<block wx:if="{{!loading}}">
+    <view class="main">
+        <view class="section">
+            <view class="section_title">男生</view>
+            <view class="section_wrp">
+                <block wx:for="{{item.male}}">
+                    <view class="item" data-gender="male" data-name="{{item.name}}" bindtap="openCate">
+                        <view class="temp_cate">
+                            <view class="cate">{{item.name}}</view>
+                        </view>
+                        <view class="temp_count">
+                            <view class="count">{{item.bookCount}}本</view>
+                        </view>
+                    </view>
+                </block>
+
+            </view>
+        </view>
+        <view class="section">
+            <view class="section_title">女生</view>
+            <view class="section_wrp">
+                <block wx:for="{{item.female}}">
+                    <view class="item" data-gender="female" data-name="{{item.name}}" bindtap="openCate">
+                        <view class="temp_cate">
+                            <view class="cate">{{item.name}}</view>
+                        </view>
+                        <view class="temp_count">
+                            <view class="count">{{item.bookCount}}本</view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="section">
+            <view class="section_title">出版</view>
+            <view class="section_wrp">
+                <block wx:for="{{item.press}}">
+                    <view class="item" data-gender="press" data-name="{{item.name}}" bindtap="openCate">
+                        <view class="temp_cate">
+                            <view class="cate">{{item.name}}</view>
+                        </view>
+                        <view class="temp_count">
+                            <view class="count">{{item.bookCount}}本</view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+</block>
+<loading hidden="{{!loading}}" bindchange="loadingChange">
+    加载中...
+</loading>

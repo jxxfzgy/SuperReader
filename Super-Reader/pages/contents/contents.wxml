@@ -1,0 +1,33 @@
+<block wx:if="{{!loading}}">
+    <view class="chapter">
+        <view class="head">
+
+        </view>
+        <view class="body">
+            <view class="title_view">
+                <text class="chapter_count">共{{chapterCount}}章</text>
+                <text class="chapter_length">1-50章</text>
+                <image src="/image/arrowright.png" class='chapter_icon' mode="aspectFill"></image>
+            </view>
+            <picker range="{{contentsRange}}" value="{{contentsValue}}" bindchange="bindChapterChange">
+                <view class="picker">
+                    当前选择: {{currentRange}}
+                </view>
+            </picker>
+            <scroll-view class="body_scroll" style="height:100%" scroll-y="true">
+                <block wx:for-items="{{currentContents}}" wx:for-item="chapter">
+                    <view class="item_view" bindtap="readBook" data-url="{{chapter.link}}"
+                          data-title="{{chapter.title}}"
+                          data-index="{{index}}">
+                        <text class="item_text">{{chapter.title}}</text>
+                        <view class="item_line {{index == 0? '':'item_line_left'}}"></view>
+                    </view>
+                </block>
+            </scroll-view>
+
+        </view>
+    </view>
+</block>
+<loading hidden="{{!loading}}" bindchange="loadingChange">
+    加载中...
+</loading>

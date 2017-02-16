@@ -1,0 +1,72 @@
+.chapter{
+  display: block;
+  min-height: 100%;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.body{
+  position: relative;
+}
+
+.title_view{
+  padding: 32rpx 24rpx;
+  align-items: center;
+  display: none;
+  flex-direction: row;
+  background-color: #fff;
+}
+.chapter_count{
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+.chapter_length{
+  font-size: 26rpx;
+  color: #333;
+  margin-right: 20rpx;
+}
+.chapter_icon{
+  width: 18rpx;
+  height: 18rpx;
+  transform: (rotate(-180deg));
+}
+.body_scroll{
+  position: relative;
+}
+.item_view{
+  position: relative;
+  padding: 24rpx 24rpx;
+}
+.item_text{
+  font-size: 26rpx;
+  color: #666;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+}
+.item_line{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1rpx;
+  right:0;
+  width: 100%;
+  background-color: #ccc;
+}
+.item_line_left{
+  position: absolute;
+  top: 0;
+  left: 24rpx;
+  padding-right: 24rpx;
+  height: 1rpx;
+  width: 100%;
+  background-color: #ccc;
+}
+.picker{
+  padding: 24rpx 24rpx;
+  font-size: 32rpx;
+  color: #333;
+}

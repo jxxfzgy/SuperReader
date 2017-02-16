@@ -1,0 +1,35 @@
+<view class="body">
+    <view class="input_layout">
+        <view class="input_inner">
+            <image src="/image/search_small.png" class="search_icon" mode="aspectFit"></image>
+            <input class="input" value="{{inputValue}}" placeholder="请输入书名或作者名" focus="true" placeholder-style="color: #999"
+                   bindconfirm="searchSubmit" bindinput="inputChange"/>
+        </view>
+        <view class="search_btn" bindtap="back">取消</view>
+    </view>
+    <block wx:if="{{showResult}}">
+        <block wx:for-items="{{books}}">
+            <view class="book-item" bindtap="bookDetail" data-id="{{item._id}}" data-title="{{item.title}}">
+                <view class="book-image">
+                    <image src="http://statics.zhuishushenqi.com{{item.cover}}"></image>
+                </view>
+                <view class="book-info">
+                    <view class="book-inner">
+                        <view class="item_title">{{item.title}}</view>
+                        <view class="item_author">{{item.author}}</view>
+                        <text class="item_desc">{{item.shortIntro}}</text>
+                    </view>
+
+                </view>
+            </view>
+        </block>
+    </block>
+    <block wx:else>
+        <view class="hot_search">热门搜索</view>
+        <view class="search_tags">
+            <block wx:for-items="{{hotWords}}" wx:for-item="hotWord">
+                <view class="tag" data-tag="{{hotWord}}" bindtap="hotWorldClick">{{hotWord}}</view>
+            </block>
+        </view>
+    </block>
+</view>
